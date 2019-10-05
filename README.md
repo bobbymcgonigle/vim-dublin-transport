@@ -1,5 +1,7 @@
 # vim-dublin-transport
-Vim plugin to get real time information for Dublin Bus, Irish Rail and Luas
+Vim plugin to get real time information for Dublin Bus, Irish Rail and Luas. At the moment, it only supports Dublin Bus real time information with the intent to add support for Irish Rail and Luas in the future.
+
+![](demo.gif)
 
 ## Commands
 
