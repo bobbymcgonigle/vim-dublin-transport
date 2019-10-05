@@ -34,7 +34,7 @@ function! NextFavouriteBuses()
     if has( "python3" )
       python3 DublinBusInfo.listNextBuses( vim.eval( "g:FavouriteBusStop" ), vim.eval( "g:FavouriteBusRoute" ) )
     endif
-    if has( "python2" )
+    if has( "python" )
       python DublinBusInfo.listNextBuses( vim.eval( "g:FavouriteBusStop" ), vim.eval( "g:FavouriteBusRoute" ) )
     endif
 endfunction	
@@ -45,7 +45,7 @@ function! NextBusesAtStop( stopNumber )
     if has( "python3" )
       python3 DublinBusInfo.listNextBuses( vim.eval( "a:stopNumber" ) )
     endif
-    if has( "python2" )
+    if has( "python" )
       python DublinBusInfo.listNextBuses( vim.eval(" a:stopNumber" ) )
     endif
 endfunction
@@ -57,7 +57,7 @@ function! NextBusOfRoute( stopNumber, busNumber )
     if has( "python3" )
       python3 DublinBusInfo.listNextBuses( vim.eval( "a:stopNumber" ), vim.eval( "a:busNumber" ) )
     endif
-    if has( "python2" )
+    if has( "python" )
       python DublinBusInfo.listNextBuses( vim.eval( "a:stopNumber" ), vim.eval( "a:busNumber" ) )
     endif
 endfunction
