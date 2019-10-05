@@ -3,6 +3,8 @@ Vim plugin to get real time information for Dublin Bus, Irish Rail and Luas. At 
 
 ![](demo.gif)
 
+## Installation
+install using a vim plugin manager of choice; to install using Vundle (https://github.com/VundleVim/Vundle.vim assuming you have installed already) add `Plugin 'bobbymcgonigle/vim-dublin-transport'` to your .vimrc and use the `PluginInstall` command.
 ## Commands
 
 These are the basic commands that the plugin supports so far. More will be added over time.
