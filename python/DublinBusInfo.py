@@ -1,7 +1,7 @@
 import json
 
 def usingPython3():
-    if sys.version_info >= ( 3,0 ):
+    if if sys.version_info[0] > 2::
         return True
     else:
         return False
@@ -11,7 +11,7 @@ def usingPython3():
 # https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=46&format=json
 def getStopJSON( stopNumber ):
     httpUrl = "https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid={}&format=json".format( stopNumber )
-    if usingPython3:
+    if usingPython3 is True:
         # Note: Against conventions to import here
         #       but not willing to spend more time with another workaround for Python2.x & Python3.x support
         import urllib.request
