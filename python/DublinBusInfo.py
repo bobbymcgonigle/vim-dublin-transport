@@ -1,7 +1,7 @@
 import json
 
 def usingPython3():
-    if if sys.version_info[0] > 2::
+    if sys.version_info[0] > 2:
         return True
     else:
         return False
