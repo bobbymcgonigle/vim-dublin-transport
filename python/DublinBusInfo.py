@@ -6,9 +6,10 @@ def usingPython3():
     else:
         return False
 
-# List all the different routes at a certain stop number
-# Prints the bus number and the minutes due in
-def listAllStopTimes( stopNumber ):
+# Helper function that returns the raw JSON info from a particular bus stop
+# Example of its return can be viewed here in browser:
+# https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=46&format=json
+def getStopJSON( stopNumber ):
     httpUrl = "https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid={}&format=json".format( stopNumber )
     if usingPython3:
         # Note: Against conventions to import here
@@ -19,14 +20,17 @@ def listAllStopTimes( stopNumber ):
         # Same as note above
         import urllib2
         httpResponse = urllib2.urlopen( httpUrl ).read()
-    httpResponse = json.loads( httpResponse.decode( 'utf-8' ) )
-    realTimeResults = httpResponse[ 'results' ]
+    return json.loads( httpResponse.decode( 'utf-8' ) )
 
-    print( "Next buses at stop: {}".format( httpResponse[ 'stopid' ] ) )
+# List all the different routes at a certain stop number
+# Prints the bus number and the minutes due in
+# Useful if you can take any bus home at a certain stop
+def listNextBuses( stopNumber, busNumber=None ):
+    stopJSON = getStopJSON( stopNumber )
+    realTimeResults = stopJSON[ 'results' ]
+
+    print( "Next buses at stop: {}".format( stopJSON[ 'stopid' ] ) )
     for bus in realTimeResults:
         busInfo = "{} in {} minutes".format( bus[ 'route' ], bus[ 'duetime' ] )
-        print( busInfo )
-
-def main():
-    # Testing with stop 583
-    listAllStopTimes( 583 )
+        if bus[ 'route' ] == busNumber or busNumber is None:
+            print( busInfo )
