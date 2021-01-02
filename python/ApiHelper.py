@@ -3,10 +3,7 @@ import sys
 
 # Helper methods for support of different Python versions
 def usingPython3():
-    if sys.version_info[0] > 2:
-        return True
-    else:
-        return False
+    return sys.version_info[0] > 2:
 
 #---------------------------------------------------------------------------------------------
 # Helper function that returns the raw JSON info from a particular bus stop
