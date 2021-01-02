@@ -1,9 +1,6 @@
 " Determine if using Python3 or not
 function! s:UsingPython3()
-  if has( "python3" )
-    return 1
-  endif
-  return 0
+  return if has( "python3" )
 endfunction
 
 " Determine correct Python command based off Python version
